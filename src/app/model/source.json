@@ -1,6 +1,6 @@
 {
   "Source": {
-    "Adversal": {
+    "Actor": {
       "Individual": {
         "Outsider": null,
         "Insider": null,
@@ -19,7 +19,7 @@
       },
       "Nation-State": null
     },
-    "Structural": {
+    "Structure": {
       "IT Equipment": {
         "Storage": null,
         "Processing": null,

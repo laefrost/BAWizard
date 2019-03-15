@@ -1,289 +1,285 @@
 {
-  "Events": {
-    "Physical attacks": {
-      "Briberies/corruptions": null,
-      "Coercions, extortions or corruptions": null,
-      "Unauthorised entry to premises": null,
-      "Information leakages/sharing": null,
-      "Thefts": {
-        "Documents": null,
-        "Cables": null,
-        "Storagehmedia": null,
-        "Devices": null
+  "Event": {
+    "Attack": {
+      "Nefarious activity / Abuse": {
+        "Identity theft": null,
+        "Abuse of personal data": null,
+        "Abuse of authorizations": null,
+        "Misuse of information/information systems": null,
+        "Manipulation of information": {
+          "AS manipulation": {
+            "AS hijacking": null
+          },
+          "Falsification of configurations": null,
+          "DNS manipulations": {
+            "DNS spoofing": {
+              "DNS poisoning": null
+            }
+          },
+          "Routing table manipulations": {
+            "Address space Hijacking (IP prefixes)": null
+          },
+          "Falsification of records": null
+        },
+        "Manipulation of Hardware and software": null,
+        "Generation and use of rogue certificates": {
+          "Improperly issued SSL certificates": null,
+          "SSL CA infiltration": null
+        },
+        "Compromising confidential information (data breaches)": null,
+        "Abuse of information leakages": null,
+        "Potentially unwanted software": {
+          "Greyware": null,
+          "Adware": null
+        },
+        "Malware and viruses": {
+          "Rogueware": null,
+          "Scareware": null,
+          "Spyware": null,
+          "Botnets": null,
+          "Rootkits": null,
+          "Trojans": null,
+          "Worms": null,
+          "Viruses": null
+        },
+        "Unsolicited email": null,
+        "Denial of service attacks (DoS/DDoS)": {
+          "Malformed packet attacks": {
+            "IP address options": null
+          },
+          "Protocol exploitations": {
+            "Push+Ack": null,
+            "TCP-SYN": null
+          },
+          "Applications": {
+            "WinNuke": null,
+            "XDoS": null,
+            "Ping of Death": null
+          },
+          "Volume": {
+            "Flooding": {
+              "Slowloris": null,
+              "ICMP (Ping)": null,
+              "UDP": null
+            },
+            "Spoofing": null,
+            "Amplification/reflection": {
+              "ZAvx": null,
+              "Quake Network Protocol": null,
+              "Steam": null,
+              "Kad": null,
+              "BitTorrent": null,
+              "QOTD": null,
+              "CharGen": null,
+              "SSDP": null,
+              "NetBios": null,
+              "SNMP": null,
+              "DNS": null,
+              "NTP": null
+            }
+          }
+        },
+        "Social engineering": {
+          "Phishing": {
+            "Baiting": null,
+            "Whaling": null,
+            "Spearhphishing": null
+          },
+          "Pretexting/hoax": null
+        },
+        "Brute force": null,
+        "Timescales": {
+          "Targeted attacks/advanced persistent threats": null,
+          "Large scale scans/probes": null
+        },
+        "Unauthorised activities": {
+          "Unauthorised use of software": null,
+          "Unauthorised installation of software": null,
+          "Unauthorised changes of records": null,
+          "Unauthorised access to information systems/networks": {
+            "DNS Registrar Hijacking": null,
+            "IMPI Protocol": null
+          },
+          "Unauthorised use of administration of devices and systems": null
+        },
+        "Exploitation of software bugs": {
+          "Validation": {
+            "Authentication": {
+              "Cross site request forgery": null
+            },
+            "Input": {
+              "Crosshsite scripting (XSS)": null,
+              "SQL injections": null
+            }
+          },
+          "Race conditions": null,
+          "Buffer overflows": null,
+          "Design flaws": null,
+          "Kernel flaws": null
+        },
+        "Remote activities execution": null,
+        "Intended similarity of identifiers": {
+          "Typosquatting": null,
+          "Domain name collision": null
+        }
       },
-      "Sabotage": null,
-      "Vandalisms": null,
-      "Frauds": null,
-      "Bombhattacks/threats": null
+      "Physical attacks": {
+        "Briberies/corruptions": null,
+        "Coercions, extortions or corruptions": null,
+        "Unauthorised entry to premises": null,
+        "Information leakages/sharing": null,
+        "Thefts": {
+          "Documents": null,
+          "Cables": null,
+          "Storagehmedia": null,
+          "Devices": null
+        },
+        "Sabotage": null,
+        "Vandalisms": null,
+        "Frauds": null,
+        "Bombhattacks/threats": null
+      },
+      "Eavesdropping": {
+        "Interception compromising emissions": null,
+        "Interception of information": {
+          "Espionage": {
+            "Nation state espionage": null,
+            "Corporate espionage": null
+          },
+          "Rogue hardware": null,
+          "Software interceptions": null
+        },
+        "Interfering radiations": null,
+        "Replay of messages": null,
+        "Man in the middle/session hijacking": {
+          "Route leaks": null,
+          "BGP sessions": null,
+          "Network injection": null
+        },
+        "Repudiation of actions": null
+      }
     },
-    "Outages": {
-      "Network outages": null,
-      "Cooling outages": null,
-      "Loss of support services": null,
-      "Strikes": null,
-      "Absence of personnel": null,
-      "Power surges": null,
-      "Power cut Loss of power": null,
-      "Fuel exhaustions": null,
-      "Lack of resources": {
-        "Lack of physical resources": {
+    "Technical": {
+      "Outage": {
+        "Network outages": null,
+        "Cooling outages": null,
+        "Loss of support services": null,
+        "Strikes": null,
+        "Absence of personnel": null,
+        "Power surges": null,
+        "Power cut Loss of power": null,
+        "Fuel exhaustions": null,
+        "Lack of resources": {
+          "Lack of physical resources": {
+            "Cooling": null,
+            "Water": null,
+            "Power": null
+          },
+          "Lack of storage capabilities": null,
+          "Lack of network capacities": null,
+          "Lack of processing power": null,
+          "Lack of human resources": null
+        }
+      },
+      "Failures/Malfunctions": {
+        "Failures of parts of devices": {
+          "Linecards": null,
+          "Connectors": null
+        },
+        "Failure of devices or systems": {
+          "Network devices": null,
+          "Servers": null,
+          "Data centers": null
+        },
+        "Failures or disruptions of communication links (communication networks)": {
+          "Cable breaks": null,
+          "Cable cuts": null
+        },
+        "Failures or disruptions of main supply": {
+          "Power": null,
           "Cooling": null,
-          "Water": null,
-          "Power": null
+          "Water": null
         },
-        "Lack of storage capabilities": null,
-        "Lack of network capacities": null,
-        "Lack of processing power": null,
-        "Lack of human resources": null
-      }
-    },
-    "Abuse": {
-      "Identity theft": null,
-      "Abuse of personal data": null,
-      "Abuse of authorizations": null,
-      "Misuse of information/information systems": null,
-      "Manipulation of information": {
-        "AS manipulation": {
-          "AS hijacking": null
+        "Failures of disruptions of service providers (supply chain)": null,
+        "Failures or disruptions of the power supply": null,
+        "Malfunctions of parts of devices": {
+          "Linecards": null,
+          "Connectors": null
         },
-        "Falsification of configurations": null,
-        "DNS manipulations": {
-          "DNS spoofing": {
-            "DNS poisoning": null
-          }
+        "Malfunctions of devices or systems": {
+          "Network devices": null,
+          "Servers": null,
+          "Data centers": null
         },
-        "Routing table manipulations": {
-          "Address space Hijacking (IP prefixes)": null
-        },
-        "Falsification of records": null
-      },
-      "Manipulation of Hardware and software": null,
-      "Generation and use of rogue certificates": {
-        "Improperly issued SSL certificates": null,
-        "SSL CA infiltration": null
-      },
-      "Compromising confidential information (data breaches)": null,
-      "Abuse of information leakages": null,
-      "Potentially unwanted software": {
-        "Greyware": null,
-        "Adware": null
-      },
-      "Malware and viruses": {
-        "Rogueware": null,
-        "Scareware": null,
-        "Spyware": null,
-        "Botnets": null,
-        "Rootkits": null,
-        "Trojans": null,
-        "Worms": null,
-        "Viruses": null
-      },
-      "Unsolicited email": null,
-      "Denial of service attacks (DoS/DDoS)": {
-        "Malformed packet attacks": {
-          "IP address options": null
-        },
-        "Protocol exploitations": {
-          "Push+Ack": null,
-          "TCP-SYN": null
-        },
-        "Applications": {
-          "WinNuke": null,
-          "XDoS": null,
-          "Ping of Death": null
-        },
-        "Volume": {
-          "Flooding": {
-            "Slowloris": null,
-            "ICMP (Ping)": null,
-            "UDP": null
-          },
-          "Spoofing": null,
-          "Amplification/reflection": {
-            "ZAvx": null,
-            "Quake Network Protocol": null,
-            "Steam": null,
-            "Kad": null,
-            "BitTorrent": null,
-            "QOTD": null,
-            "CharGen": null,
-            "SSDP": null,
-            "NetBios": null,
-            "SNMP": null,
-            "DNS": null,
-            "NTP": null
-          }
+        "Software bugs": null,
+        "Configuration errors": {
+          "Misconfiguration": null
         }
       },
-      "Social engineering": {
-        "Phishing": {
-          "Baiting": null,
-          "Whaling": null,
-          "Spearhphishing": null
-        },
-        "Pretexting/hoax": null
-      },
-      "Brute force": null,
-      "Timescales": {
-        "Targeted attacks/advanced persistent threats": null,
-        "Large scale scans/probes": null
-      },
-      "Unauthorised activities": {
-        "Unauthorised use of software": null,
-        "Unauthorised installation of software": null,
-        "Unauthorised changes of records": null,
-        "Unauthorised access to information systems/networks": {
-          "DNS Registrar Hijacking": null,
-          "IMPI Protocol": null
-        },
-        "Unauthorised use of administration of devices and systems": null
-      },
-      "Exploitation of software bugs": {
-        "Validation": {
-          "Authentication": {
-            "Cross site request forgery": null
-          },
-          "Input": {
-            "Crosshsite scripting (XSS)": null,
-            "SQL injections": null
+      "Damage/Loss": {
+        "Damage caused by a third party": {
+          "Internal cases": null,
+          "External cases": {
+            "Ship collides with cable": null
           }
         },
-        "Race conditions": null,
-        "Buffer overflows": null,
-        "Design flaws": null,
-        "Kernel flaws": null
-      },
-      "Remote activities execution": null,
-      "Intended similarity of identifiers": {
-        "Typosquatting": null,
-        "Domain name collision": null
-      }
-    },
-    "Disasters": {
-      "Natural disasters": {
-        "Earthquakes": null,
-        "Floods": null,
-        "Tsunamis": null,
-        "Landslides": null,
-        "Lighttning strike": null,
-        "Heavy rains": null,
-        "Heavy snowfalls": null,
-        "Heavy winds": null,
-        "Wildfire": null,
-        "Electromagnetic storm": null
-      },
-      "Environmental disasters": {
-        "Fires": null,
-        "Dangerous radiation leaks": null,
-        "Pollutions": null,
-        "Dusts": null,
-        "Corrosions": null,
-        "Unfavourable climatic conditions": null,
-        "Major events in the environment": null,
-        "Explosions": null
-      }
-    },
-    "Failures/Malfunctions": {
-      "Failures of parts of devices": {
-        "Linecards": null,
-        "Connectors": null
-      },
-      "Failure of devices or systems": {
-        "Network devices": null,
-        "Servers": null,
-        "Data centers": null
-      },
-      "Failures or disruptions of communication links (communication networks)": {
-        "Cable breaks": null,
-        "Cable cuts": null
-      },
-      "Failures or disruptions of main supply": {
-        "Power": null,
-        "Cooling": null,
-        "Water": null
-      },
-      "Failures of disruptions of service providers (supply chain)": null,
-      "Failures or disruptions of the power supply": null,
-      "Malfunctions of parts of devices": {
-        "Linecards": null,
-        "Connectors": null
-      },
-      "Malfunctions of devices or systems": {
-        "Network devices": null,
-        "Servers": null,
-        "Data centers": null
-      },
-      "Software bugs": null,
-      "Configuration errors": {
-        "Misconfiguration": null
-      }
-    },
-    "Unintentional damages (accidental)": {
-      "Information leakage/sharing": null,
-      "Erroneous use or administration of devices and systems": null,
-      "Using information from unreliable sources": null,
-      "Unintentional changes of data in information systems": null,
-      "Inadequate designs and planning or lack of adaptions": {
-        "Inadequate specifications": null,
-        "Inadequate usability": null,
-        "Insecure interfaces (APIs)": null,
-        "Policy/procedure flaws": null,
-        "Design errors": null
-      }
-    },
-    "Damage/Loss (IT assets)": {
-      "Damage caused by a third party": {
-        "Internal cases": null,
-        "External cases": {
-          "Ship collides with cable": null
-        }
-      },
-      "Damages resulting from penetration testing": null,
-      "Loss of information": null,
-      "Loss of (integrity of) sensitive information": null,
-      "Loss of reputation": {
-        "Sybil attacks": null,
-        "Unfair ratings": null,
-        "Playbooks": null,
-        "Discriminations": null,
-        "Collusions": null,
-        "Proliferation": null,
-        "Reputation lag exploitations": null,
-        "Re-entries": null,
-        "Value imbalance exploitations": null
-      },
-      "Loss": {
-        "Devices": null,
-        "Storage media": null,
-        "Cables": null,
-        "Documents": null
-      },
-      "Destruction of records, devices or storage media": null,
-      "Power surges": null,
-      "Wildlife": {
-        "Rats": null,
-        "Sharks": null,
-        "Mice": null
-      }
-    },
-    "Eavesdropping/Interception/Hijacking": {
-      "Interception compromising emissions": null,
-      "Interception of information": {
-        "Espionage": {
-          "Nation state espionage": null,
-          "Corporate espionage": null
+        "Damages resulting from penetration testing": null,
+        "Loss of information": null,
+        "Loss of (integrity of) sensitive information": null,
+        "Loss of reputation": {
+          "Sybil attacks": null,
+          "Unfair ratings": null,
+          "Playbooks": null,
+          "Discriminations": null,
+          "Collusions": null,
+          "Proliferation": null,
+          "Reputation lag exploitations": null,
+          "Re-entries": null,
+          "Value imbalance exploitations": null
         },
-        "Rogue hardware": null,
-        "Software interceptions": null
+        "Loss": {
+          "Devices": null,
+          "Storage media": null,
+          "Cables": null,
+          "Documents": null
+        },
+        "Destruction of records, devices or storage media": null,
+        "Power surges": null,
+        "Wildlife": {
+          "Rats": null,
+          "Sharks": null,
+          "Mice": null
+        },
+        "Unintentional damages (accidental)": {
+          "Information leakage/sharing": null,
+          "Erroneous use or administration of devices and systems": null,
+          "Using information from unreliable sources": null,
+          "Unintentional changes of data in information systems": null,
+          "Inadequate designs and planning or lack of adaptions": {
+            "Inadequate specifications": null,
+            "Inadequate usability": null,
+            "Insecure interfaces (APIs)": null,
+            "Policy/procedure flaws": null,
+            "Design errors": null
+          }
+        }
+      }
+    },
+    "Environmental": {
+      "Disaster": {
+        "Fire": null,
+        "Flood/Tsunami": null,
+        "Windstorm/Tornado": null,
+        "Hurricane": null,
+        "Earthquake": null,
+        "Bombing": null,
+        "Overrun": null
       },
-      "Interfering radiations": null,
-      "Replay of messages": null,
-      "Man in the middle/session hijacking": {
-        "Route leaks": null,
-        "BGP sessions": null,
-        "Network injection": null
-      },
-      "Repudiation of actions": null
+      "Unusual Natural Event": null,
+      "Infrastructure Failure/Outage": {
+        "Telecommunications": null,
+        "Electrical Power": null
+      }
     },
     "Legal": {
       "Violation of laws or regulations/breach of legislation": null,
