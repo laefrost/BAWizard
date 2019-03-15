@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Incident, Impact } from './model/incident';
+import { Incident, Impact, ImpactDescription } from './model/incident';
 import { IncidentService } from './model/incident.service';
 import sourceJson from './model/source.json'
 import eventsJson from './model/threat.json'
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit{
   incident: Incident;
   impactKeys: string[] = Object.keys(Impact);
   impact = Impact;
+  impactDescription = ImpactDescription;
 
   sourcesTree: any;
   eventsTree: any;

@@ -95,7 +95,10 @@
                            <header class="panel__header">
                                <h2 class="panel__title">Report Threat Sources</h2>
                            </header>
-                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+                           <p class="panel__content">
+                             Threat Sources are the entities, which initiate the harmful events.<br/>
+                             If the source is unknown or the harmful event was initiated by another event, you can can skip this step.
+                           </p>
 
                            <mat-accordion>
                             <mat-expansion-panel *ngFor="let source of incident.sources; let i = index">
@@ -121,7 +124,9 @@
                            <header class="panel__header">
                                <h2 class="panel__title">Report Threat Events</h2>
                            </header>
-                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+                           <p class="panel__content">
+                             Threat Events are the processes, which actually cause theharm to an organization.<br/>
+                             You can add multiple events that are part of the observed incident. Selectable events are filtered based on the sources selected in the previous step. Additionally, you can enter a more detailed description for each event.</p>
 
                            <mat-accordion>
                             <mat-expansion-panel *ngFor="let event of incident.events; let i = index">
@@ -146,9 +151,11 @@
 
                        <div class="panel">
                            <header class="panel__header">
-                               <h2 class="panel__title">Report affected entities.</h2>
+                               <h2 class="panel__title">Report affected Entities</h2>
                            </header>
-                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+                           <p class="panel__content">
+                             An entity can be anything that is negatively influenced by the previously stated events. <br/>
+                             Please name the specific entity in the corresponding description field. If the entity is unknown this step can be skipped.</p>
                            <mat-accordion>
                             <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index">
                               <mat-expansion-panel-header>
@@ -171,17 +178,18 @@
 
                        <div class="panel">
                            <header class="panel__header">
-                               <h2 class="panel__title">Estimate the impact.</h2>
+                               <h2 class="panel__title">Estimate the Impact.</h2>
                            </header>
-
+                            Therefore, thehuman sensor can in most cases only give a qualitative estimation
                            <p class="panel__content">
+                             Please estimate the severity of the reported incident qualitatively. Hover over the selectible options in order to get a more detailed explanation.<br/>
                              <mat-form-field>
                               <mat-select placeholder="Impact" [(ngModel)]="incident.impact">
-                                <mat-option *ngFor="let impactKey of impactKeys" [value]="impactKey">
+                                <mat-option *ngFor="let impactKey of impactKeys" [value]="impactKey" [matTooltip]="impactDescription[impactKey]">
                                   {{impact[impactKey]}}
                                 </mat-option>
                               </mat-select>
-                            </mat-form-field><br/><br/><br/>
+                            </mat-form-field><br/><br/>
                             <b>Additional Information:</b><br/>
                             <mat-form-field>
                               <input matInput placeholder="eMail" type="email" name="email" [(ngModel)]="incident.email" email>
@@ -192,7 +200,7 @@
                               <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
                             <mat-form-field class="detailTextarea">
-                               <textarea matInput placeholder="General description" [(ngModel)] = "incident.description" class="detailTextarea"></textarea>
+                               <textarea matInput placeholder="General description of the incident" [(ngModel)] = "incident.description" class="detailTextarea"></textarea>
                              </mat-form-field>
                            </p>
                        </div>
