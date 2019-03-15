@@ -185,7 +185,7 @@
                              Please estimate the severity of the reported incident qualitatively. Hover over the selectible options in order to get a more detailed explanation.<br/>
                              <mat-form-field>
                               <mat-select placeholder="Impact" [(ngModel)]="incident.impact">
-                                <mat-option *ngFor="let impactKey of impactKeys" [value]="impactKey" [matTooltip]="impactDescription[impactKey]">
+                                <mat-option *ngFor="let impactKey of impactKeys" [value]="impactKey" [matTooltip]="impactDescription[impactKey]" matTooltipPosition="right">
                                   {{impact[impactKey]}}
                                 </mat-option>
                               </mat-select>
