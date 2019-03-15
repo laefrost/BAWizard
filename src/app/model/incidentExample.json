@@ -1,0 +1,68 @@
+{
+  "sources": [
+    {
+      "source": [
+        "Adversal",
+        "Group",
+        "Established"
+      ],
+      "description": "Gruppe"
+    },
+    {
+      "source": [
+        "Structural",
+        "Software",
+        "Networking"
+      ],
+      "description": "Blödes Netz"
+    }
+  ],
+  "events": [
+    {
+      "event": [
+        "Outages",
+        "Cooling outages"
+      ],
+      "description": "yx<yx<yx"
+    },
+    {
+      "event": [
+        "Outages",
+        "Cooling outages"
+      ],
+      "description": "<yxy sdfgsdfg"
+    },
+    {
+      "event": [],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": [
+        "Individuals"
+      ],
+      "description": ""
+    },
+    {
+      "entity": [
+        "Nations"
+      ],
+      "description": "sdfsdfs"
+    },
+    {
+      "entity": [],
+      "description": ""
+    },
+    {
+      "entity": [
+        "Assets"
+      ],
+      "description": "sdfsfdsdf"
+    }
+  ],
+  "impact": "low",
+  "email": "sadflsdjflkj@sfd.de",
+  "time": "2019-03-13T23:00:00.000Z",
+  "description": "sdfsdfsdfsdf"
+}

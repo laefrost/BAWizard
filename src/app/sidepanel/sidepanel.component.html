@@ -1,0 +1,53 @@
+<div id="sidebar" #sidebar [hidden]="concluded">
+    <header>
+        <h2>
+            Captured elements:
+        </h2>
+    </header>
+    <div class="divider"></div>
+    <div id="sidebar_content">
+      <div class="labelGroup" *ngIf="incident.isOneSourceSet()">
+        <b>Sources:</b>
+      <div *ngFor="let source of incident.sources; let i = index">
+          <div class="label sourceLabel" *ngIf="source.source.length > 0">
+            <a href="#" class="right" (click)="incident.sources.splice(i,1)">x</a>
+            <div class="labelText">
+              Source {{i+1}}: {{source.source[source.source.length - 1]}}
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="labelGroup" *ngIf="incident.isOneEventSet()">
+        <b>Events:</b>
+      <div *ngFor="let event of incident.events; let i = index">
+          <div class="label eventLabel" *ngIf="event.event.length > 0">
+          <a href="#" class="right" (click)="incident.events.splice(i,1)">x</a>
+            <div class="labelText">
+              Event {{i+1}}: {{event.event[event.event.length - 1]}}
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="labelGroup" *ngIf="incident.isOneEntitySet()">
+        <b>Entities:</b>
+      <div *ngFor="let entity of incident.entities; let i = index">
+          <div class="label entityLabel" *ngIf="entity.entity.length > 0">
+          <a href="#" class="right" (click)="incident.entities.splice(i,1)">x</a>
+            <div class="labelText">
+              Entity {{i+1}}: {{entity.entity[entity.entity.length - 1]}}
+            </div>
+          </div>
+      </div>
+      </div>
+
+      <div class="labelGroup" *ngIf="incident.impact">
+        <b>Impact:</b>
+        <div class="label impactLabel">
+          <!-- <a href="#" class="right">x</a> -->
+          <div class="labelText">
+            Impact: {{incident.impact | impactToString}}
+          </div>
+        </div>
+        </div>
+    </div>
+</div>

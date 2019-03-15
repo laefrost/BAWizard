@@ -1,0 +1,232 @@
+<div class="wrapper">
+           <div id="wizard" class="wizard" #wizard [hidden]="concluded">
+               <div class="wizard__content">
+                   <header class="wizard__header">
+                       <div class="wizard__header-overlay"></div>
+
+                       <div class="wizard__header-content">
+                           <h1 class="wizard__title">Human as a security sensor Wizard</h1>
+                           <p class="wizard__subheading">Report incidents in <span>4</span> simple steps.</p>
+                       </div>
+
+                       <div class="wizard__steps">
+                           <nav class="steps">
+                               <div class="step">
+                                   <div class="step__content">
+                                       <p class="step__number"><i class="fa fa-group orange"></i></p>
+                                       <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                       <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                       <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                       </svg>
+
+                                       <div class="lines">
+                                           <div class="line -start">
+                                           </div>
+
+                                           <div class="line -background">
+                                           </div>
+
+                                           <div class="line -progress">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="step">
+                                   <div class="step__content">
+                                       <p class="step__number"><i class="fa fa-bolt green"></i></p>
+                                       <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                       <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                       <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                       </svg>
+
+                                       <div class="lines">
+                                           <div class="line -background">
+                                           </div>
+
+                                           <div class="line -progress">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                               <div class="step">
+                                   <div class="step__content">
+                                       <p class="step__number"><i class="fa fa-building blue"></i></p>
+                                       <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                       <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                       <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                       </svg>
+
+                                       <div class="lines">
+                                           <div class="line -background">
+                                           </div>
+
+                                           <div class="line -progress">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="step">
+                                   <div class="step__content">
+                                       <p class="step__number"><i class="fa fa-gavel red"></i></p>
+                                       <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                       <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                                       <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                       </svg>
+
+                                       <div class="lines">
+                                           <div class="line -background">
+                                           </div>
+
+                                           <div class="line -progress">
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </nav>
+                       </div>
+
+                   </header>
+
+                   <div class="panels">
+
+                       <div class="panel">
+                           <header class="panel__header">
+                               <h2 class="panel__title">Report Threat Sources</h2>
+                           </header>
+                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                           <mat-accordion>
+                            <mat-expansion-panel *ngFor="let source of incident.sources; let i = index">
+                              <mat-expansion-panel-header>
+                                Source {{i + 1}}
+                              </mat-expansion-panel-header>
+                               <app-tree-selector [incidentTree] = "sourcesTree" [(ngModel)] = "source.source">
+                               </app-tree-selector>
+                               <mat-form-field class="detailTextarea">
+                                  <textarea matInput placeholder="Detailed description" [(ngModel)] = "source.description" class="detailTextarea"></textarea>
+                                </mat-form-field>
+                                 <div class="removeIcon" (click)="incident.sources.splice(i,1)"><i class="fa fa-trash"></i></div>
+                            </mat-expansion-panel>
+                          </mat-accordion>
+                          <div style="float: left; width: 100%">
+                            <button mat-button style="margin-top: 15px; float: right" (click)="addSource()">
+                              <i class="fa fa-plus" style="color: #4CAF50"></i> add Source
+                            </button>
+                          </div>
+                        </div>
+
+                       <div class="panel">
+                           <header class="panel__header">
+                               <h2 class="panel__title">Report Threat Events</h2>
+                           </header>
+                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                           <mat-accordion>
+                            <mat-expansion-panel *ngFor="let event of incident.events; let i = index">
+                              <mat-expansion-panel-header>
+                                Event {{i + 1}}
+                              </mat-expansion-panel-header>
+                               <app-tree-selector [incidentTree] = "eventsTree" [(ngModel)] = "event.event">
+                               </app-tree-selector>
+                               <mat-form-field class="detailTextarea">
+                                  <textarea matInput placeholder="Detailed description" [(ngModel)] = "event.description" class="detailTextarea"></textarea>
+                                </mat-form-field>
+                                 <div class="removeIcon" (click)="incident.events.splice(i,1)"><i class="fa fa-trash"></i></div>
+                            </mat-expansion-panel>
+                          </mat-accordion>
+                          <div style="float: left; width: 100%">
+                            <button mat-button style="margin-top: 15px; float: right" (click)="addEvent()">
+                              <i class="fa fa-plus" style="color: #4CAF50"></i> add Event
+                            </button>
+                          </div>
+                        </div>
+
+
+                       <div class="panel">
+                           <header class="panel__header">
+                               <h2 class="panel__title">Report affected entities.</h2>
+                           </header>
+                           <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+                           <mat-accordion>
+                            <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index">
+                              <mat-expansion-panel-header>
+                                Entity {{i + 1}}
+                              </mat-expansion-panel-header>
+                               <app-tree-selector [incidentTree] = "entitiesTree" [(ngModel)] = "entity.entity">
+                               </app-tree-selector>
+                               <mat-form-field class="detailTextarea">
+                                  <textarea matInput placeholder="Detailed description" [(ngModel)] = "entity.description" class="detailTextarea"></textarea>
+                                </mat-form-field>
+                                 <div class="removeIcon" (click)="incident.entities.splice(i,1)"><i class="fa fa-trash"></i></div>
+                            </mat-expansion-panel>
+                           </mat-accordion>
+                           <div style="float: left; width: 100%">
+                            <button mat-button style="margin-top: 15px; float: right" (click)="addEntity()">
+                              <i class="fa fa-plus" style="color: #4CAF50"></i> add Entity
+                            </button>
+                           </div>
+                         </div>
+
+                       <div class="panel">
+                           <header class="panel__header">
+                               <h2 class="panel__title">Estimate the impact.</h2>
+                           </header>
+
+                           <p class="panel__content">
+                             <mat-form-field>
+                              <mat-select placeholder="Impact" [(ngModel)]="incident.impact">
+                                <mat-option *ngFor="let impactKey of impactKeys" [value]="impactKey">
+                                  {{impact[impactKey]}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field><br/><br/><br/>
+                            <b>Additional Information:</b><br/>
+                            <mat-form-field>
+                              <input matInput placeholder="eMail" type="email" name="email" [(ngModel)]="incident.email" email>
+                            </mat-form-field><br/>
+                            <mat-form-field>
+                              <input matInput [matDatepicker]="picker" placeholder="Date" [(ngModel)]="incident.time">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field class="detailTextarea">
+                               <textarea matInput placeholder="General description" [(ngModel)] = "incident.description" class="detailTextarea"></textarea>
+                             </mat-form-field>
+                           </p>
+                       </div>
+                   </div>
+
+                   <div class="wizard__footer">
+                       <button class="button previous">Previous</button>
+                       <button class="button next"
+                                [hidden]="!incident.isOneEventSet() && (wizardControler.currentStep === 1 || wizardControler.currentStep === 3)">
+                          Next
+                        </button>
+                       <button  class="button disabled"
+                                [hidden]="incident.isOneEventSet() || (wizardControler.currentStep !== 1 && wizardControler.currentStep !== 3)"
+                                matTooltip="add at least one event"
+                                matTooltipShowDelay="200">
+                          {{wizardControler.nextControl.innerHTML}}
+                        </button>
+                   </div>
+               </div>
+
+
+           </div>
+           <app-sidepanel [concluded]="concluded"></app-sidepanel>
+
+
+       </div>
+
+       <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+       <div [hidden]="!concluded">
+         <h1 class="wizard__congrats-message">
+             Congratulations, you've entered a world of pain!<br/>
+             <button onclick="location.reload();" class="button">New Incident</button>
+         </h1>
+         {{incidentJsonOutput}}<br/>
+       </div>
+
+       {{inc}}

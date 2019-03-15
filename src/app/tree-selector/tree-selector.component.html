@@ -1,0 +1,24 @@
+<!-- <mat-form-field>
+  <mat-select placeholder="{{(incidentTree | keys)[0]}}" [(ngModel)]="selected[0]">
+    <mat-option *ngFor="let child of incidentTree[(incidentTree | keys)[0]] | keys" [value] = "child">
+      {{child}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field *ngFor="let sel of selected; let i = index" [(ngModel)]="selected[i+1]">
+  <mat-select>
+    <mat-option *ngFor="let child of incidentTree[(incidentTree | keys)[0]] | keys" [value] = "child">
+      {{child}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+<div *ngFor="let choice of choices; let i = index">
+  <mat-form-field>
+    <mat-select placeholder="{{(incidentTree| keys)[0]}}" (selectionChange)= "selectionChange($event.value, i)">
+      <mat-option *ngFor="let child of choice | keys" [value] = "child">
+        {{child}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+</div>
