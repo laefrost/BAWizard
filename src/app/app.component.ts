@@ -25,6 +25,8 @@ export class AppComponent implements OnInit{
   concluded: boolean = false;
   incidentJsonOutput: string;
 
+  buttonNext: string = "Next";
+
   wizardControler: Wizard;
 
   selected = [];
@@ -202,13 +204,13 @@ class Wizard{
 
   handleNextStepButton(){
     if(this.currentStep === this.stepsQuantity - 1){
-      this.nextControl.innerHTML = 'Conclude!';
+      this.component.buttonNext = 'Conclude!';
 
       this.nextControl.removeEventListener('click', this.nextControlMoveStepMethod);
       this.nextControl.addEventListener('click', this.concludeControlMoveStepMethod);
       this.nextControl.addEventListener('click', this.wizardConclusionMethod);
     }else{
-      this.nextControl.innerHTML = 'Next';
+      this.component.buttonNext = 'Next';
 
       this.nextControl.addEventListener('click', this.nextControlMoveStepMethod);
       this.nextControl.removeEventListener('click', this.concludeControlMoveStepMethod);

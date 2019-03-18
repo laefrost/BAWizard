@@ -277,6 +277,10 @@ body, html {
     cursor: default;
 }
 
+.button.hidden{
+  display: none;
+}
+
 @keyframes stroke {
     to {
         stroke-dashoffset: 0;
