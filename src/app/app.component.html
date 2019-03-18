@@ -100,8 +100,8 @@
                              If the source is unknown or the harmful event was initiated by another event, you can can skip this step.
                            </p>
 
-                           <mat-accordion>
-                            <mat-expansion-panel *ngFor="let source of incident.sources; let i = index">
+                           <mat-accordion #sourcesAccordion>
+                            <mat-expansion-panel *ngFor="let source of incident.sources; let i = index" [(expanded)]="sourcesPanelOpened[i]">
                               <mat-expansion-panel-header>
                                 Source {{i + 1}}
                               </mat-expansion-panel-header>
@@ -129,7 +129,7 @@
                              You can add multiple events that are part of the observed incident. Selectable events are filtered based on the sources selected in the previous step. Additionally, you can enter a more detailed description for each event.</p>
 
                            <mat-accordion>
-                            <mat-expansion-panel *ngFor="let event of incident.events; let i = index">
+                            <mat-expansion-panel *ngFor="let event of incident.events; let i = index" [(expanded)]="eventsPanelOpened[i]">
                               <mat-expansion-panel-header>
                                 Event {{i + 1}}
                               </mat-expansion-panel-header>
@@ -157,7 +157,7 @@
                              An entity can be anything that is negatively influenced by the previously stated events. <br/>
                              Please name the specific entity in the corresponding description field. If the entity is unknown this step can be skipped.</p>
                            <mat-accordion>
-                            <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index">
+                            <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index" [(expanded)]="entitiesPanelOpened[i]">
                               <mat-expansion-panel-header>
                                 Entity {{i + 1}}
                               </mat-expansion-panel-header>

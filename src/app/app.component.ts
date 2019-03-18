@@ -12,11 +12,15 @@ import entitiesJson from './model/entities.json'
 })
 export class AppComponent implements OnInit{
   @ViewChild('wizard') wizard: any;
+  @ViewChild('sourcesAccordion') sourcesAccordion: any;
 
   incident: Incident;
   impactKeys: string[] = Object.keys(Impact);
   impact = Impact;
   impactDescription = ImpactDescription;
+  sourcesPanelOpened: boolean[] = [true];
+  eventsPanelOpened: boolean[] = [true];
+  entitiesPanelOpened: boolean[] = [true];
 
   sourcesTree: any;
   eventsTree: any;
@@ -48,14 +52,21 @@ export class AppComponent implements OnInit{
   }
 
   addSource(): void{
+    this.sourcesPanelOpened.forEach((_e, i) => {this.sourcesPanelOpened[i]=false})
+    this.sourcesPanelOpened.push(true);
     this.incident.addSource();
+    console.log(this.sourcesPanelOpened)
   }
 
   addEvent(): void{
+    this.eventsPanelOpened.forEach((_e, i) => {this.eventsPanelOpened[i]=false})
+    this.eventsPanelOpened.push(true);
     this.incident.addEvent();
   }
 
   addEntity(): void{
+    this.entitiesPanelOpened.forEach((_e, i) => {this.entitiesPanelOpened[i]=false})
+    this.entitiesPanelOpened.push(true);
     this.incident.addEntity();
   }
 
