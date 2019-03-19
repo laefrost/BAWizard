@@ -52,22 +52,33 @@ export class AppComponent implements OnInit{
   }
 
   addSource(): void{
-    this.sourcesPanelOpened.forEach((_e, i) => {this.sourcesPanelOpened[i]=false})
-    this.sourcesPanelOpened.push(true);
-    this.incident.addSource();
-    console.log(this.sourcesPanelOpened)
+    this.addElement(
+      this.incident.sources,
+      this.sourcesPanelOpened,
+      {source: [], description: ""})
   }
 
   addEvent(): void{
-    this.eventsPanelOpened.forEach((_e, i) => {this.eventsPanelOpened[i]=false})
-    this.eventsPanelOpened.push(true);
-    this.incident.addEvent();
+    this.addElement(
+      this.incident.events,
+      this.eventsPanelOpened,
+      {event: [], description: ""})
   }
 
   addEntity(): void{
-    this.entitiesPanelOpened.forEach((_e, i) => {this.entitiesPanelOpened[i]=false})
-    this.entitiesPanelOpened.push(true);
-    this.incident.addEntity();
+    this.addElement(
+      this.incident.entities,
+      this.entitiesPanelOpened,
+      {entity: [], description: ""})
+  }
+
+  addElement(elementArray: {description: string}[], openedArray: boolean[], element: any): void{
+    if(elementArray.length < openedArray.length)
+      openedArray.splice(elementArray.length, openedArray.length)
+
+    openedArray.forEach((_e, i) => {openedArray[i]=false})
+    openedArray.push(true);
+    this.incident.addElement(element);
   }
 
   onConclude(){

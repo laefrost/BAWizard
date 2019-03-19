@@ -17,33 +17,30 @@ export class Incident{
   description: string;
 
   constructor(){
-    this.addSource();
-    this.addEvent();
-    this.addEntity();
+    this.addElement({source: [], description: ""});
+    this.addElement({event: [], description: ""});
+    this.addElement({entity: [], description: ""});
   }
 
-  addSource(): void{
-    let newElement = {source: [], description: ""}
-    if(!this.sources)
-      this.sources = [newElement]
-    else
-      this.sources.push(newElement)
-  }
+  addElement(element: {source: [], description: string}): void;
 
-  addEvent(): void{
-    let newElement = {event: [], description: ""}
-    if(!this.events)
-      this.events = [newElement]
-    else
-      this.events.push(newElement)
-  }
+  addElement(element: {event: [], description: string}): void;
 
-  addEntity(): void{
-    let newElement = {entity: [], description: ""}
-    if(!this.entities)
-      this.entities = [newElement]
+  addElement(element: {entity: [], description: string}): void;
+
+  addElement(element: {description: string}): void{
+    let key: string;
+    if(element['source'])
+      key = 'sources';
+    else if(element['event'])
+      key = 'events';
+    else if(element['entity'])
+      key = 'entities';
+
+    if(!this[key])
+      this[key] = [element]
     else
-      this.entities.push(newElement)
+      this[key].push(element)
   }
 
   isOneEventSet(): boolean{
