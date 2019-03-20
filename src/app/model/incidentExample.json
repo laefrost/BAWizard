@@ -1,16 +1,36 @@
 {
+  "idCount": 10,
   "sources": [
     {
       "source": [
         "Structure",
-        "Environmental Controls",
-        "Power Supply"
+        "Environmental Controls"
       ],
-      "description": "wqrsafsdaf"
+      "description": "fdgsdfgsdg",
+      "id": 0
     },
     {
       "source": [],
-      "description": ""
+      "description": "",
+      "id": 3
+    },
+    {
+      "source": [
+        "Structure",
+        "IT Equipment",
+        "Storage"
+      ],
+      "description": "sfgsfdgsdfgsdfgsdfgsdfg",
+      "id": 4
+    },
+    {
+      "source": [
+        "Actor",
+        "Group",
+        "Established"
+      ],
+      "description": "",
+      "id": 5
     }
   ],
   "events": [
@@ -18,30 +38,56 @@
       "event": [
         "Technical",
         "Failures/Malfunctions",
-        "Failure of devices or systems",
-        "Servers"
+        "Failures or disruptions of main supply",
+        "Power"
       ],
-      "description": "sadf"
+      "description": "gsdfgsdfgsdfgsfdgsdfg\nsdfgsdfg",
+      "id": 1,
+      "triggeredBy": 4
+    },
+    {
+      "event": [],
+      "description": "",
+      "id": 6
     },
     {
       "event": [
-        "Attack",
-        "Physical attacks",
-        "Coercions, extortions or corruptions"
+        "Technical",
+        "Failures/Malfunctions",
+        "Failure of devices or systems"
       ],
-      "description": "asdfasdf"
+      "description": "fsgddfgsdfg",
+      "id": 7,
+      "triggeredBy": 8
+    },
+    {
+      "event": [
+        "Technical",
+        "Failures/Malfunctions"
+      ],
+      "description": "sdfgsdfgsdfgsdfgsdfg",
+      "id": 8,
+      "triggeredBy": 0
     }
   ],
   "entities": [
     {
       "entity": [
-        "Assets"
+        "Nations"
       ],
-      "description": "sadfasdf"
+      "description": "dfgssdfgsdfg",
+      "id": 2
+    },
+    {
+      "entity": [
+        "Individuals"
+      ],
+      "description": "xvxvxcvsdffsdxcvxcv",
+      "id": 9
     }
   ],
-  "impact": "low",
-  "email": "dsfadf@sadfsdf",
-  "time": "2019-03-10T23:00:00.000Z",
-  "description": "asfdsadfasdf"
+  "impact": "moderate",
+  "email": "sadf@sfdf.de",
+  "time": "2019-03-11T23:00:00.000Z",
+  "description": "sdafasdfasfd"
 }
