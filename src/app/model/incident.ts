@@ -2,19 +2,25 @@ export class Incident{
   sources: {
     source: string[];
     description: string;
+    id: number;
   }[];
   events: {
     event: string[];
     description: string;
+    id: number;
+    triggeredBy: number;
   }[];
   entities: {
     entity: string[];
     description: string;
+    id: number;
   }[];
   impact: Impact;
   time: Date;
   email: string;
   description: string;
+
+  idCount: number = 0;
 
   constructor(){
     this.addElement({source: [], description: ""});
@@ -37,6 +43,7 @@ export class Incident{
     else if(element['entity'])
       key = 'entities';
 
+    element['id'] = this.idCount++;
     if(!this[key])
       this[key] = [element]
     else

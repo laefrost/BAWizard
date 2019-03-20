@@ -133,6 +133,20 @@
                               <mat-expansion-panel-header>
                                 Event {{i + 1}}
                               </mat-expansion-panel-header>
+                              <mat-form-field>
+                                <mat-select placeholder="triggered by" [(ngModel)]="event.triggeredBy">
+                                  <ng-container *ngFor="let source of incident.sources; let j = index">
+                                    <mat-option *ngIf="source.source.length > 0" [value]="source.id">
+                                      Source {{j + 1}}: {{source.source[source.source.length -1]}}
+                                    </mat-option>
+                                  </ng-container>
+                                  <ng-container *ngFor="let trigEvent of incident.events; let j = index">
+                                    <mat-option *ngIf="trigEvent.event.length > 0 && trigEvent.id != event.id" [value]="trigEvent.id">
+                                      Event {{j + 1}}: {{trigEvent.event[trigEvent.event.length -1]}}
+                                    </mat-option>
+                                  </ng-container>
+                                </mat-select>
+                              </mat-form-field>
                                <app-tree-selector [incidentTree] = "eventsTree" [(ngModel)] = "event.event">
                                </app-tree-selector>
                                <mat-form-field class="detailTextarea">
