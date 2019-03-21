@@ -4,6 +4,7 @@ import { IncidentService } from './model/incident.service';
 import sourceJson from './model/source.json'
 import eventsJson from './model/threat.json'
 import entitiesJson from './model/entities.json'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit{
 
   selected = [];
 
-  constructor(private incidentService: IncidentService){
+  constructor(private incidentService: IncidentService, private http: HttpClient){
     this.sourcesTree = sourceJson;
     this.eventsTree = eventsJson;
     this.entitiesTree = entitiesJson;
@@ -83,6 +84,24 @@ export class AppComponent implements OnInit{
 
   onConclude(){
     this.incidentJsonOutput = JSON.stringify(this.incident)
+    this.postIncident();
+  }
+
+  postIncident(){
+    let headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+    this.http.post('http://132.199.120.140:8080/STIXServer/webresources/simpleQuery', JSON.stringify(this.incident), {headers: headers}).subscribe(
+      (val) => {
+          console.log("POST call successful value returned in body",
+                      val);
+      },
+      response => {
+          console.log("POST call in error", response);
+      },
+      () => {
+          console.log("The POST observable is now completed.");
+      }
+    );
   }
 }
 
