@@ -14,8 +14,11 @@
 </mat-form-field> -->
 <div *ngFor="let choice of choices; let i = index">
   <mat-form-field [ngStyle]="{'margin-left.px': 15*i}">
-    <mat-select placeholder="{{i === 0?(incidentTree| keys)[0] + 'type':'Detail ' + i}}" (selectionChange)= "selectionChange($event.value, i)" [value] = "selections?selections[i]:undefined">
-      <mat-option *ngFor="let child of choice | keys | eventConstraints:triggeredBy:incident" [value] = "child">
+    <mat-select placeholder="{{i === 0?(incidentTree| keys)[0] + 'type':'Detail ' + i}}" 
+                (selectionChange)= "selectionChange($event.value, i)"
+                [value] = "selections?selections[i]:undefined">
+      <mat-option *ngFor="let child of choice | keys | eventConstraints:triggeredBy:incident"
+                  [value] = "child">
         {{child}}
       </mat-option>
     </mat-select>

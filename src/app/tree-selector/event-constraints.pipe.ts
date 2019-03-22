@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import constraintsJson from '../model/constraints.json';
-import { IncidentService } from '../model/incident.service.js';
 import { Incident } from '../model/incident.js';
 
 @Pipe({
@@ -12,7 +11,7 @@ export class EventConstraintsPipe implements PipeTransform {
   constructor(){
   };
 
-  transform(selectibleEvents: string[], triggeredBy: number, incident): string[] {
+  transform(selectibleEvents: string[], triggeredBy: number, incident: Incident): string[] {
     let triggeredByEvent: string[] = incident.getElementById(triggeredBy);
     if(triggeredBy === undefined || triggeredByEvent === undefined)
       return selectibleEvents;

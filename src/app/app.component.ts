@@ -44,7 +44,6 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.incident = this.incidentService.getIncidents();
-    console.log(this.incident)
     this.wizardControler = new Wizard(this);
     let buttonNext = document.querySelector('.next');
     let buttonPrevious = document.querySelector('.previous');
@@ -97,9 +96,6 @@ export class AppComponent implements OnInit{
       },
       response => {
           console.log("POST call in error", response);
-      },
-      () => {
-          console.log("The POST observable is now completed.");
       }
     );
   }

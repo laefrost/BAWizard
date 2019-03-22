@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { TreeSelectorComponent } from './tree-selector/tree-selector.component';
 import { KeysPipe } from './keys.pipe';
 import { EventConstraintsPipe } from './tree-selector/event-constraints.pipe';
-import { IncidentService } from './model/incident.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
