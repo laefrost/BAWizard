@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { TreeSelectorComponent } from './tree-selector/tree-selector.component';
 import { KeysPipe } from './keys.pipe';
+import { EventConstraintsPipe } from './tree-selector/event-constraints.pipe';
+import { IncidentService } from './model/incident.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { KeysPipe } from './keys.pipe';
     SidepanelComponent,
     ImpactToStringPipe,
     TreeSelectorComponent,
-    KeysPipe
+    KeysPipe,
+    EventConstraintsPipe
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { KeysPipe } from './keys.pipe';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

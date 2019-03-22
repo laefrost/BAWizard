@@ -147,7 +147,7 @@
                                   </ng-container>
                                 </mat-select>
                               </mat-form-field>
-                               <app-tree-selector [incidentTree] = "eventsTree" [(ngModel)] = "event.event">
+                               <app-tree-selector [incidentTree] = "eventsTree" [(ngModel)] = "event.event" [triggeredBy] = event.triggeredBy>
                                </app-tree-selector>
                                <mat-form-field class="detailTextarea">
                                   <textarea matInput placeholder="Detailed description" [(ngModel)] = "event.description" class="detailTextarea"></textarea>
@@ -248,7 +248,7 @@
        <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
        <div [hidden]="!concluded">
          <h1 class="wizard__congrats-message">
-             Congratulations, you've entered a world of pain!<br/>
+             Thank you for reporting the incident!<br/>
              <button onclick="location.reload();" class="button">New Incident</button>
          </h1>
          {{incidentJsonOutput}}<br/>

@@ -73,6 +73,22 @@ export class Incident{
     }
     return false;
   }
+
+  getElementById(id: number): string[]{
+    for(let source of this.sources)
+      if(source.id === id)
+        return source.source;
+
+    for(let event of this.events)
+      if(event.id === id)
+        return event.event;
+
+    for(let entity of this.entities)
+      if(entity.id === id)
+        return entity.entity;
+
+    return undefined;
+  }
 }
 
 export enum Impact{

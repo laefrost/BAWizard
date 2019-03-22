@@ -1,0 +1,14 @@
+{
+  "Unusual Natural Event": {
+    "prohibits": ["Actor", "Structure", "Attack", "Technical", "Legal"]
+  },
+  "Attack": {
+    "prohibits": ["Environmental", "Legal"]
+  },
+  "Technical": {
+    "prohibits": ["Legal"]
+  },
+  "Environmental": {
+    "prohibits": ["Legal"]
+  }
+}

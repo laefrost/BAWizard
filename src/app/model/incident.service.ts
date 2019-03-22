@@ -5,11 +5,12 @@ import { Incident } from './incident';
   providedIn: 'root'
 })
 export class IncidentService {
-  incident: Incident = new Incident();
+  public incident: Incident = new Incident();
 
   constructor() { }
 
   getIncidents(): Incident{
+    // console.log(this.incident)
     return this.incident;
   }
 }

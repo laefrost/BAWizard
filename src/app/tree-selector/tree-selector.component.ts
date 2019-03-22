@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { Incident } from '../model/incident';
 import { IncidentService } from '../model/incident.service';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { EventConstraintsPipe } from './event-constraints.pipe';
 
 @Component({
   selector: 'app-tree-selector',
@@ -13,13 +14,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     multi: true
   }]
 })
-export class TreeSelectorComponent implements OnInit, ControlValueAccessor {
+export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAccessor {
   @Input() incidentTree: any;
+  @Input() triggeredBy: string;
   @Output() valueChange = new EventEmitter();
 
   incident: Incident;
-  choices: any = []
-  selections: string[] = []
+  choices: any = [];
+  selections: string[] = [];
 
   constructor(private incidentService: IncidentService) {}
 
@@ -34,7 +36,14 @@ export class TreeSelectorComponent implements OnInit, ControlValueAccessor {
       this.selections.pop();
     }
 
-    this.selections[i] = value;
+    if(value === undefined){
+      this.selections.pop();
+      this.choices.pop();
+      if(this.choices.length == 0)
+        this.choices[0] = this.incidentTree[Object.keys(this.incidentTree)[0]]
+    }
+    else
+      this.selections[i] = value;
     if(this.choices[i][value])
       this.choices[i+1] = this.choices[i][value];
 
@@ -48,5 +57,16 @@ export class TreeSelectorComponent implements OnInit, ControlValueAccessor {
     }
     writeValue(value: any): void {
       this.selections = value;
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+      if(changes.triggeredBy){
+        let eventConstraintPipe: EventConstraintsPipe = new EventConstraintsPipe();
+        this.selections.forEach((selection, i) => {
+          if(!eventConstraintPipe.isEventAllowed(selection, this.incident.getElementById(changes.triggeredBy.currentValue))){
+            this.selectionChange(undefined, i);
+          }
+        });
+      }
     }
 }
