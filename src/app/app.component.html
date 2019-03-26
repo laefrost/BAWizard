@@ -247,9 +247,12 @@
 
        <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
        <div [hidden]="!concluded">
-         <h1 class="wizard__congrats-message">
-             Thank you for reporting the incident!<br/>
-             <button onclick="location.reload();" class="button">New Incident</button>
-         </h1>
-         {{incidentJsonOutput}}<br/>
+         <div class="wizard__congrats-message">
+           <h1>
+               Thank you for reporting the incident!<br/>
+               <button onclick="location.reload();" class="button">New Incident</button><br/>
+           </h1>
+               <span *ngIf="stixIncidentUrl">STIX representation of the reported Incident: <br/><a style="color: black" [href]="stixIncidentUrl">{{stixIncidentUrl}}</a></span>
+         </div>
+         <!-- {{incidentJsonOutput}}<br/> -->
        </div>

@@ -29,6 +29,7 @@ export class AppComponent implements OnInit{
 
   concluded: boolean = false;
   incidentJsonOutput: string;
+  stixIncidentUrl = "";
 
   buttonNext: string = "Next";
 
@@ -89,10 +90,11 @@ export class AppComponent implements OnInit{
   postIncident(){
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    this.http.post('http://132.199.120.140:8080/STIXServer/webresources/simpleQuery', JSON.stringify(this.incident), {headers: headers}).subscribe(
+    this.http.post('http://132.199.120.140:8080/STIXServer/webresources/stixoutput', JSON.stringify(this.incident), {headers: headers, responseType: "text"}).subscribe(
       (val) => {
           console.log("POST call successful value returned in body",
                       val);
+          this.stixIncidentUrl = "" + val;
       },
       response => {
           console.log("POST call in error", response);
