@@ -76,7 +76,7 @@ body, html {
     z-index: 10;
 }
 .wizard__footer {
-    padding: 0 50px 50px;
+    padding: 15px 50px 50px;
     border-radius: 5px;
     float: right;
 }
@@ -84,7 +84,7 @@ body, html {
     background: #FFF;
     box-shadow: 0px 0px 10px #c5c5c5;
     border-radius: 5px;
-    height: 900px;
+    height: 950px;
 }
 .wizard__congrats-message {
     color: #676767;
@@ -136,7 +136,7 @@ body, html {
 .panels {
     position: relative;
     overflow-x: hidden;
-    height: 620px !important;
+    height: 670px !important;
 }
 
 .panel {
@@ -145,7 +145,7 @@ body, html {
     left: 0;
     transition: .5s all;
     padding: 50px;
-    height: 520px !important;
+    height: 570px !important;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -320,7 +320,7 @@ body, html {
     background: #4D637B;
     float: left;
     margin-left: 10px;
-    height: 900px;
+    height: 950px;
     width: 300px;
 
     border-radius: 5px;
@@ -338,7 +338,7 @@ body, html {
 #sidebar_content{
     background: white;
     width: 290px;
-    height: 690px;
+    height: 740px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 10px;
@@ -395,8 +395,8 @@ body, html {
 }
 
 .detailTextarea {
-  width: 100%;
-  height: 5em
+  width: 85%;
+  height: 4em
 }
 
 .orange{
