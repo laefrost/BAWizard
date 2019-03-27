@@ -192,9 +192,9 @@
 
                        <div class="panel">
                            <header class="panel__header">
-                               <h2 class="panel__title">Estimate the Impact.</h2>
+                               <h2 class="panel__title">Estimate the Impact</h2>
                            </header>
-                           <p class="panel__content">
+                           <div class="panel__content">
                              Please estimate the severity of the reported incident qualitatively. Hover over the selectible options in order to get a more detailed explanation.<br/>
                              <mat-form-field>
                               <mat-select placeholder="Impact" [(ngModel)]="incident.impact">
@@ -202,8 +202,8 @@
                                   {{impact[impactKey]}}
                                 </mat-option>
                               </mat-select>
-                            </mat-form-field><br/><br/>
-                            <b>Additional Information:</b><br/>
+                            </mat-form-field><br/><br/><br/>
+                            <h2 class="panel__title">Additional Information</h2>
                             <mat-form-field>
                               <input matInput placeholder="eMail" type="email" name="email" [(ngModel)]="incident.email" email>
                             </mat-form-field><br/>
@@ -218,7 +218,7 @@
                              <mat-form-field class="detailTextarea">
                                 <textarea matInput placeholder="Technical data (e.g. log data, content of phishing mail)" [(ngModel)]="incident.technicalData" class="detailTextarea"></textarea>
                               </mat-form-field>
-                           </p>
+                           </div>
                        </div>
                    </div>
 
