@@ -213,8 +213,12 @@
                               <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
                             <mat-form-field class="detailTextarea">
-                               <textarea matInput placeholder="General description of the incident" [(ngModel)] = "incident.description" class="detailTextarea"></textarea>
+                               <textarea matInput placeholder="General description of the incident" [(ngModel)]="incident.description" class="detailTextarea"></textarea>
                              </mat-form-field>
+
+                             <mat-form-field class="detailTextarea">
+                                <textarea matInput placeholder="Technical data (e.g. log data, content of phishing mail)" [(ngModel)]="incident.technicalData" class="detailTextarea"></textarea>
+                              </mat-form-field>
                            </p>
                        </div>
                    </div>

@@ -19,6 +19,7 @@ export class Incident{
   time: Date;
   email: string;
   description: string;
+  technicalData: string;
 
   idCount: number = 0;
 
