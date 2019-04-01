@@ -20,6 +20,7 @@ export class Incident{
   email: string;
   description: string;
   technicalData: string;
+  title: string;
 
   idCount: number = 0;
 
@@ -89,6 +90,12 @@ export class Incident{
         return entity.entity;
 
     return undefined;
+  }
+
+  checkTitle(): boolean{
+    if(this.title && this.title.trim())
+      return true;
+    return false;
   }
 }
 
