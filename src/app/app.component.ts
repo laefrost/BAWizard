@@ -28,7 +28,6 @@ export class AppComponent implements OnInit{
   entitiesTree: any;
 
   concluded: boolean = false;
-  incidentJsonOutput: string;
   stixIncidentUrl = "";
 
   buttonNext: string = "Next";
@@ -83,8 +82,8 @@ export class AppComponent implements OnInit{
   }
 
   onConclude(){
-    this.incidentJsonOutput = JSON.stringify(this.incident)
     this.postIncident();
+    console.log(this.incident);
   }
 
   postIncident(){
@@ -100,6 +99,11 @@ export class AppComponent implements OnInit{
           console.log("POST call in error", response);
       }
     );
+  }
+
+  dateChange(event: any){
+    this.incident.time = event.value.format('YYYY-MM-DD');
+    console.log(this.incident.time);
   }
 }
 

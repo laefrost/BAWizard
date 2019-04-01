@@ -208,7 +208,7 @@
                               <input matInput placeholder="eMail" type="email" name="email" [(ngModel)]="incident.email" email>
                             </mat-form-field><br/>
                             <mat-form-field>
-                              <input matInput [matDatepicker]="picker" placeholder="Date" [(ngModel)]="incident.time">
+                              <input matInput [matDatepicker]="picker" placeholder="Date" (dateChange)="dateChange($event)">
                               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                               <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>

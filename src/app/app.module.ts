@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSelectModule, MatExpansionModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatTooltipModule } from '@angular/material'
+import { MatSelectModule, MatExpansionModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatTooltipModule, MAT_DATE_LOCALE } from '@angular/material'
+
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
 
 import { AppComponent } from './app.component';
 import { SidepanelComponent, ImpactToStringPipe } from './sidepanel/sidepanel.component';
@@ -29,11 +31,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatMomentDateModule,
     MatTooltipModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true }},
+              {provide: MAT_DATE_LOCALE, useValue: 'en-GB'} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
