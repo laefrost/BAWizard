@@ -261,7 +261,8 @@
                Thank you for reporting the incident!<br/>
                <button onclick="location.reload();" class="button">New Incident</button><br/>
            </h1>
-               <span *ngIf="stixIncidentUrl">STIX representation of the reported Incident: <br/><a style="color: black" [href]="stixIncidentUrl">{{stixIncidentUrl}}</a></span>
+              <span>STIX representation of the reported Incident: <br/><mat-spinner *ngIf="!stixIncidentUrl" diameter="20" style="margin:0 auto;"></mat-spinner></span>
+              <span *ngIf="stixIncidentUrl"><a style="color: black" [href]="stixIncidentUrl">{{stixIncidentUrl}}</a></span>
          </div>
          <!-- {{incidentJsonOutput}}<br/> -->
        </div>

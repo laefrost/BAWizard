@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSelectModule, MatExpansionModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatTooltipModule, MAT_DATE_LOCALE } from '@angular/material'
+import { MatSelectModule, MatExpansionModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatTooltipModule, MAT_DATE_LOCALE, MatProgressSpinnerModule } from '@angular/material'
 
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
 
@@ -33,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatMomentDateModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [{provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true }},
               {provide: MAT_DATE_LOCALE, useValue: 'en-GB'} ],
