@@ -89,7 +89,7 @@ export class AppComponent implements OnInit{
   postIncident(){
     let headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-    this.http.post('http://132.199.120.140:8080/STIXServer/webresources/stixoutput', JSON.stringify(this.incident), {headers: headers, responseType: "text"}).subscribe(
+    this.http.post('http://pcrw00033.uni-regensburg.de:8080/STIXServer/webresources/stixoutput', JSON.stringify(this.incident), {headers: headers, responseType: "text"}).subscribe(
       (val) => {
           console.log("POST call successful value returned in body",
                       val);
