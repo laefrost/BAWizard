@@ -7,6 +7,7 @@
                        <div class="wizard__header-content">
                            <h1 class="wizard__title">Human as a security sensor Wizard</h1>
                            <p class="wizard__subheading">Report incidents in <span>4</span> simple steps.</p>
+                           <p><a href="/STIXServer/overview.xhtml" class="wizard__subheading" style="text-decoration: underline">Past reported threats</a></p>
                        </div>
 
                        <div class="wizard__steps">
@@ -263,5 +264,4 @@
               <span>STIX representation of the reported Incident: <br/><mat-spinner *ngIf="!stixIncidentUrl" diameter="20" style="margin:0 auto;"></mat-spinner></span>
               <span *ngIf="stixIncidentUrl"><a style="color: black" [href]="stixIncidentUrl">{{stixIncidentUrl}}</a></span>
          </div>
-         <!-- {{incidentJsonOutput}}<br/> -->
        </div>
