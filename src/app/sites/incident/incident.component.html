@@ -1,0 +1,273 @@
+
+<div class="wrapper">
+  <div id="wizard" class="wizard" #wizard [hidden]="concluded">
+      <div class="wizard__content">
+          <header class="wizard__header">
+              <div class="wizard__header-overlay"></div>
+
+              <div class="wizard__header-content">
+                  <h1 class="wizard__title">Human as a security sensor Wizard</h1>
+                  <p class="wizard__subheading">Report incidents in <span>4</span> simple steps.</p>
+                  <p><a href="/STIXServer/overview.xhtml" class="wizard__subheading" style="text-decoration: underline">Past reported threats</a></p>
+              </div>
+
+              <div class="wizard__steps">
+                  <nav class="steps">
+                      <div class="step">
+                          <div class="step__content">
+                              <p class="step__number"><i class="fa fa-group orange"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+
+                              <div class="lines">
+                                  <div class="line -start">
+                                  </div>
+
+                                  <div class="line -background">
+                                  </div>
+
+                                  <div class="line -progress">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="step">
+                          <div class="step__content">
+                              <p class="step__number"><i class="fa fa-bolt green"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+
+                              <div class="lines">
+                                  <div class="line -background">
+                                  </div>
+
+                                  <div class="line -progress">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="step">
+                          <div class="step__content">
+                              <p class="step__number"><i class="fa fa-building blue"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+
+                              <div class="lines">
+                                  <div class="line -background">
+                                  </div>
+
+                                  <div class="line -progress">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="step">
+                          <div class="step__content">
+                              <p class="step__number"><i class="fa fa-gavel red"></i></p>
+                              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                              </svg>
+
+                              <div class="lines">
+                                  <div class="line -background">
+                                  </div>
+
+                                  <div class="line -progress">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+
+          </header>
+
+          <div class="panels">
+
+              <div class="panel">
+                  <header class="panel__header">
+                      <h2 class="panel__title">Report Threat Sources</h2>
+                  </header>
+                  <p class="panel__content">
+                    Threat Sources are entities, which initiate harmful events.<br/>
+                    If the source is unknown or the harmful event was initiated by another event, you can skip this step.
+                  </p>
+
+                  <mat-accordion #sourcesAccordion>
+                   <mat-expansion-panel *ngFor="let source of incident.sources; let i = index" [(expanded)]="sourcesPanelOpened[i]">
+                     <mat-expansion-panel-header>
+                       Source {{i + 1}}
+                     </mat-expansion-panel-header>
+                      <app-tree-selector [incidentTree] = "sourcesTree" [(ngModel)] = "source.source">
+                      </app-tree-selector>
+                      <mat-form-field class="detailTextarea">
+                         <textarea matInput placeholder="Detailed description" [(ngModel)] = "source.description" class="detailTextarea"></textarea>
+                       </mat-form-field>
+                        <div class="removeIcon" (click)="incident.sources.splice(i,1)"><i class="fa fa-trash"></i></div>
+                   </mat-expansion-panel>
+                 </mat-accordion>
+                 <div style="float: left; width: 100%">
+                   <button mat-button style="margin-top: 15px; float: right" (click)="addSource()">
+                     <i class="fa fa-plus" style="color: #4CAF50"></i> add Source
+                   </button>
+                 </div>
+               </div>
+
+              <div class="panel">
+                  <header class="panel__header">
+                      <h2 class="panel__title">Report Threat Events</h2>
+                  </header>
+                  <p class="panel__content">
+                    Threat Events are the processes, which actually cause harm to an organization.<br/>
+                    You can add multiple events that are part of the observed incident. Selectable events are filtered based on the sources selected in the previous step. Additionally, you can enter a more detailed description for each event.</p>
+
+                  <mat-accordion>
+                   <mat-expansion-panel *ngFor="let event of incident.events; let i = index" [(expanded)]="eventsPanelOpened[i]">
+                     <mat-expansion-panel-header>
+                       Event {{i + 1}}
+                     </mat-expansion-panel-header>
+                     <mat-form-field>
+                       <mat-select placeholder="triggered by" [(ngModel)]="event.triggeredBy">
+                         <ng-container *ngFor="let source of incident.sources; let j = index">
+                           <mat-option *ngIf="source.source.length > 0" [value]="source.id">
+                             Source {{j + 1}}: {{source.source[source.source.length -1]}}
+                           </mat-option>
+                         </ng-container>
+                         <ng-container *ngFor="let trigEvent of incident.events; let j = index">
+                           <mat-option *ngIf="trigEvent.event.length > 0 && trigEvent.id != event.id" [value]="trigEvent.id">
+                             Event {{j + 1}}: {{trigEvent.event[trigEvent.event.length -1]}}
+                           </mat-option>
+                         </ng-container>
+                       </mat-select>
+                     </mat-form-field>
+                      <app-tree-selector [incidentTree] = "eventsTree" [(ngModel)] = "event.event" [triggeredBy] = event.triggeredBy>
+                      </app-tree-selector>
+                      <mat-form-field class="detailTextarea">
+                         <textarea matInput placeholder="Detailed description" [(ngModel)] = "event.description" class="detailTextarea"></textarea>
+                       </mat-form-field>
+                        <div class="removeIcon" (click)="incident.events.splice(i,1)"><i class="fa fa-trash"></i></div>
+                   </mat-expansion-panel>
+                 </mat-accordion>
+                 <div style="float: left; width: 100%">
+                   <button mat-button style="margin-top: 15px; float: right" (click)="addEvent()">
+                     <i class="fa fa-plus" style="color: #4CAF50"></i> add Event
+                   </button>
+                 </div>
+               </div>
+
+
+              <div class="panel">
+                  <header class="panel__header">
+                      <h2 class="panel__title">Report affected Entities</h2>
+                  </header>
+                  <p class="panel__content">
+                    An entity can be anything that is negatively influenced by the previously stated events. <br/>
+                    Please name the specific entity in the corresponding description field. If the entity is unknown this step can be skipped.</p>
+                  <mat-accordion>
+                   <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index" [(expanded)]="entitiesPanelOpened[i]">
+                     <mat-expansion-panel-header>
+                       Entity {{i + 1}}
+                     </mat-expansion-panel-header>
+                      <app-tree-selector [incidentTree] = "entitiesTree" [(ngModel)] = "entity.entity">
+                      </app-tree-selector>
+                      <mat-form-field class="detailTextarea">
+                         <textarea matInput placeholder="Detailed description" [(ngModel)] = "entity.description" class="detailTextarea"></textarea>
+                       </mat-form-field>
+                        <div class="removeIcon" (click)="incident.entities.splice(i,1)"><i class="fa fa-trash"></i></div>
+                   </mat-expansion-panel>
+                  </mat-accordion>
+                  <div style="float: left; width: 100%">
+                   <button mat-button style="margin-top: 15px; float: right" (click)="addEntity()">
+                     <i class="fa fa-plus" style="color: #4CAF50"></i> add Entity
+                   </button>
+                  </div>
+                </div>
+
+              <div class="panel">
+                  <header class="panel__header">
+                      <h2 class="panel__title">Estimate the Impact</h2>
+                  </header>
+                  <div class="panel__content">
+                    Please estimate the severity of the reported incident qualitatively. Hover over the selectible options in order to get a more detailed explanation.<br/>
+                    <mat-accordion>
+                      <mat-expansion-panel *ngFor="let impact of incident.impacts; let i = index"
+                        [(expanded)]="impactsPanelOpened[i]">
+                        <mat-expansion-panel-header>
+                          Impact {{i + 1}}
+                        </mat-expansion-panel-header>
+                        <app-tree-selector [incidentTree]="impactTree" [(ngModel)]="impact.impact">
+                        </app-tree-selector>
+                      </mat-expansion-panel>
+                    </mat-accordion><br/><br/><br/>
+                   <h2 class="panel__title">Additional Information</h2>
+                   <mat-form-field>
+                     <input matInput placeholder="Title" required matTooltip="only for recognition in the prototype" type="text" name="incidentTitle" [(ngModel)]="incident.title">
+                     <mat-error>
+                       Please enter a Title
+                     </mat-error>
+                   </mat-form-field><br/>
+                   <mat-form-field>
+                     <input matInput placeholder="eMail" type="email" name="email" [(ngModel)]="incident.email" email>
+                   </mat-form-field><br/>
+                   <mat-form-field>
+                     <input matInput [matDatepicker]="picker" placeholder="Date" (dateChange)="dateChange($event)">
+                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                     <mat-datepicker #picker></mat-datepicker>
+                   </mat-form-field>
+                   <mat-form-field class="detailTextarea">
+                      <textarea matInput placeholder="General description of the incident" [(ngModel)]="incident.description" class="detailTextarea"></textarea>
+                    </mat-form-field><br/><br/>
+                    <mat-form-field class="detailTextarea">
+                       <textarea matInput placeholder="Technical data (e.g. log data, content of phishing mail)" [(ngModel)]="incident.technicalData" class="detailTextarea"></textarea>
+                     </mat-form-field>
+                  </div>
+              </div>
+          </div>
+
+          <div class="wizard__footer">
+              <button mat-button class="button previous"
+                 [disabled]="wizardControler.currentStep === 0">Previous</button>
+              <button mat-button class="button next"
+                       [ngClass]="{'hidden': (!incident.isOneEventSet() && (wizardControler.currentStep === 1 || wizardControler.currentStep === 3)) || (wizardControler.currentStep === 3 && !incident.checkTitle())}">
+                 {{buttonNext}}
+               </button>
+               <span
+                 [matTooltip]="!incident.checkTitle() && wizardControler.currentStep === 3?'title must be set':'add at least one event'"
+                 matTooltipShowDelay="200">
+                <button mat-button class="button disabled"
+                         [ngClass]="{'hidden': (incident.isOneEventSet() || (wizardControler.currentStep !== 1 && wizardControler.currentStep !== 3)) && (wizardControler.currentStep !== 3 || incident.checkTitle())}"
+                         disabled = "true">
+                   {{buttonNext}}
+                 </button>
+               </span>
+          </div>
+      </div>
+
+
+  </div>
+  <app-sidepanel [concluded]="concluded"></app-sidepanel>
+
+
+</div>
+
+<div [hidden]="!concluded">
+<div class="wizard__congrats-message">
+  <h1>
+      Thank you for reporting the incident!<br/>
+      <button (click)="postIncident()" class="button">New Incident</button><br/>
+  </h1>
+     <span>STIX representation of the reported Incident: <br/><mat-spinner *ngIf="!stixIncidentUrl" diameter="20" style="margin:0 auto;"></mat-spinner></span>
+     <span *ngIf="stixIncidentUrl"><a style="color: black" [href]="stixIncidentUrl">{{stixIncidentUrl}}</a></span>
+</div>
+</div>
+
+

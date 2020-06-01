@@ -1,0 +1,24 @@
+.mat-step-header .mat-step-icon {
+    display: none !important;
+}
+
+.container {
+    padding: 10px;
+    margin: 10px;
+    background: white
+  }
+
+  .step-navigation-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .question{
+    font-size: large;
+  }
+
+  .opt{
+    display: block;
+    padding-bottom: 4px;
+  }

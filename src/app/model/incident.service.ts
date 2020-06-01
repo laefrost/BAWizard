@@ -13,4 +13,8 @@ export class IncidentService {
     // console.log(this.incident)
     return this.incident;
   }
+
+  updateInicdent() {
+    
+  }
 }

@@ -15,7 +15,11 @@ export class Incident{
     description: string;
     id: number;
   }[];
-  impact: Impact;
+  impacts: {
+    impact: string[];
+    description: string;
+    id: number;
+  }[]
   time: Date;
   email: string;
   description: string;
@@ -28,6 +32,7 @@ export class Incident{
     this.addElement({source: [], description: ""});
     this.addElement({event: [], description: ""});
     this.addElement({entity: [], description: ""});
+    this.addElement({impact:[], description: ""});
   }
 
   addElement(element: {source: [], description: string}): void;
@@ -35,6 +40,8 @@ export class Incident{
   addElement(element: {event: [], description: string}): void;
 
   addElement(element: {entity: [], description: string}): void;
+
+  addElement(element: {impact: [],  description: string}): void; 
 
   addElement(element: {description: string}): void{
     let key: string;
@@ -44,6 +51,8 @@ export class Incident{
       key = 'events';
     else if(element['entity'])
       key = 'entities';
+    else if(element['impact'])
+      key = 'impacts'
 
     element['id'] = this.idCount++;
     if(!this[key])
@@ -71,6 +80,14 @@ export class Incident{
   isOneEntitySet(): boolean{
     for(let entity of this.entities){
       if(entity.entity.length > 0)
+        return true;
+    }
+    return false;
+  }
+
+  isOneImpactSet(): boolean{
+    for(let impact of this.impacts){
+      if(impact.impact.length > 0)
         return true;
     }
     return false;

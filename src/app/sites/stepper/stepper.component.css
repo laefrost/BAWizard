@@ -1,0 +1,31 @@
+.container {
+    padding: 10px;
+    margin: 10px;
+    background: white
+  }
+  
+  .step-navigation-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .active {
+    color: blue;
+  }
+  
+  .step {
+    background: transparent;
+    border: 0;
+    margin: 0 10px;
+    padding: 10px;
+    color: black;
+  }
+
+  .btn-previous {
+    float: right;
+  }
+
+  .btn-next {
+    float: right;
+  }

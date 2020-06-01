@@ -11,7 +11,7 @@
       {{child}}
     </mat-option>
   </mat-select>
-</mat-form-field> -->
+</mat-form-field> 
 <div *ngFor="let choice of choices; let i = index">
   <mat-form-field [ngStyle]="{'margin-left.px': 15*i}">
     <mat-select placeholder="{{i === 0?(incidentTree| keys)[0] + 'type':'Detail ' + i}}" 
@@ -24,4 +24,18 @@
     </mat-select>
   </mat-form-field>
   <br />
+</div> -->
+
+<div *ngFor="let choice of choices; let i = index">
+  <mat-form-field [ngStyle]="{'margin-left.px': 15*i}">
+    <mat-select placeholder="{{i === 0?(incidentTree.name) + 'type':'Detail ' + i}}" 
+                (selectionChange)= "selectionChange($event.value, i)">
+      <mat-option *ngFor="let child of choice | eventConstraints:triggeredBy:incident"
+                  [value] = "child">
+        {{child.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
 </div>
+

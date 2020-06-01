@@ -1,0 +1,77 @@
+<!--<mat-horizontal-stepper>
+  <mat-step  *ngFor="let q of questions.questions; let i = index">
+    <form>
+      <p>{{q.text}}</p>
+        <mat-radio-group>
+          <mat-radio-button value="1" (change)="onSelectionChange(q, i, 1)">Right</mat-radio-button>
+          <br>
+          <mat-radio-button value="0" (change)="onSelectionChange(q, i, 0)">Wrong</mat-radio-button>
+        </mat-radio-group>
+        <br>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click) = "submitAnswers()">Submit</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>-->
+<div class="wrapper" *ngIf="!done && !concluded">
+  <header class="wizard__header">
+    <div class="wizard__header-overlay"></div>
+
+    <div class="wizard__header-content">
+      <h1 class="wizard__title">Human as a security sensor Wizard</h1>
+      <p class="wizard__subheading">Report incidents in <span>4</span> simple steps.</p>
+      <p><a class="wizard__subheading">Please answer the following questions to provide further infomation</a></p>
+    </div>
+  </header>
+  <div class="container">
+    <!--<app-stepper name = "stepper" [(ngModel)]="stepper" ngDefaultControl>
+      <div>
+      <cdk-step *ngFor = "let question of questions.questions; let i = index" >
+        <div  *ngFor = "let q of subq.questions; let y = index">-->
+          <div *ngFor = "let question of questions.questions; let i = index">
+        <p class="question"> {{question.text}}</p>
+        <mat-radio-group>
+          <mat-radio-button class="opt" value="1" (change)="onSelectionChange(questions, question, i, 1)">Yes</mat-radio-button>
+          <mat-radio-button class="opt" value="0.75" (change)="onSelectionChange( questions, question,i, 0.75)">Probably
+          </mat-radio-button>
+          <mat-radio-button class="opt" value="0.25" (change)="onSelectionChange(questions, question,i, 0.25)">Probably not
+          </mat-radio-button>
+          <mat-radio-button class="opt" value="0" (change)="onSelectionChange(questions, question,i, 0)">No</mat-radio-button>
+        </mat-radio-group>   
+      </div>   
+      <!--</cdk-step>
+    </div>
+      <cdk-step>
+        <p>You are now done</p>
+        <footer class="step-navigation-bar">
+          <div class="wizard__footer">
+            <button mat-button class="button previous" cdkStepperPrevious>Previous</button>
+            <button mat-button class="button next" (click)="submitAnswers()">Conclude</button>
+          </div>
+        </footer>
+      </cdk-step>
+    </app-stepper>-->
+  </div>
+</div>
+<div *ngIf="concluded && !done">
+  <div class="wizard__congrats-message">
+    <h1>
+      Thank you for answering the questions!<br />
+    </h1>
+    <span>Further actions are being computed<br />
+      <mat-spinner *ngIf="!stixIncidentUrl" diameter="20" style="margin:0 auto;"></mat-spinner>
+    </span>
+  </div>
+</div>
+
+<div *ngIf="done">
+  <div class="wizard__congrats-message">
+    <h1>
+      Thank you for reporting the incident<br />
+    </h1>
+    <div> <button (click)="redirect()" class="button">New Incident</button></div>
+  </div>
+</div>
